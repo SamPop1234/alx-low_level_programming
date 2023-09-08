@@ -1,8 +1,6 @@
 #include <stdio.h>
-
 /**
  * main - the main file
- *
  * Return: returns 0 on success
  */
 int main(void)

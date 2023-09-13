@@ -2,44 +2,28 @@
 #include <stdio.h>
 /**
  * times_table- generates multiplication table
- * Return: void
- * @x: rows
- * @y: coloumns
- * @z: output of multiplication
- * @u: others
- * @d: others
+ * Return: 0
  */
 
 
 void times_table(void)
 {
-	int x, y, z, u, d;
-	
-	for (x = 0 ; x <= 9 x++)
+	int i, j, result;
+
+	for (i = 0 ; i < 10 ; i++)
 	{
-	for (y = 0 ; y <= 9 y++)
-	{
-	z = x * y;
-	if (z > 0)
-	{
-		u = z % 10;
-		d = (z - u) / 10;
-		_putchar(44);
-		_putchar(32);
-		_putchar(u + '0');
-		_putchar(d + '0';)
-	}
-	else
-	{
-		if (y != 0)
+		for (j = 0 ; j < 10 ; j++)
 		{
-		_putchar(44);
-		_putchar(32);
-		_putchar(32);
+			result = i * j;
+			if (j == 0)
+				printf("%d, ", result);
+			else
+			{
+				printf("%2d, ", result);
+				if (j != 9)
+					printf(", ");
+			}
 		}
-		_putchar(z + '0');
-	}
-	}
-	_putchar('\n');
+		printf("\n");
 	}
 }

@@ -1,7 +1,6 @@
-# include "main.h"
-
+#include "main.h"
 /**
- * print_rev- prints strings in reverse
+ * print_rev- prints in reverse
  * @s: string to be considered
  * Return: void
  */
@@ -9,11 +8,11 @@
 void print_rev(char *s)
 {
 	int i;
-	int count;
+	int count = 0;
 
 	for (i = 0 ; s[i] != '\0' ; i++)
 		count++;
-	for (i = count - 1 ; i >= 0; i--)
+	for (i = count - 1 ; i >= 0 ; i--)
 		_putchar(s[i]);
 	_putchar('\n');
 }

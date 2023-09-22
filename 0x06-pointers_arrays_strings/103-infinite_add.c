@@ -13,40 +13,39 @@
 
 
 void rev_string(char *n)
-
 {
 
-        int i = 0;
+	int i = 0;
 
-        int j = 0;
+	int j = 0;
 
-        char temp;
-
-
-        while (*(n + i) != '\0')
-
-        {
-
-                i++;
-
-        }
-
-        i--;
+	char temp;
 
 
-        for (j = 0; j < i; j++, i--)
+	while (*(n + i) != '\0')
 
-        {
+	{
 
-                temp = *(n + j);
+		i++;
 
-                *(n + j) = *(n + i);
+	}
 
-                *(n + i) = temp;
+	i--;
 
-        }
 
+	for (j = 0; j < i; j++, i--)
+
+	{
+
+		temp = *(n + j);
+
+		*(n + j) = *(n + i);
+
+		*(n + i) = temp;
+
+	}
 }
+
 
 
 /**
@@ -65,84 +64,81 @@ void rev_string(char *n)
 
  */
 
-
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
-
 {
 
-        int overflow = 0, i = 0, j = 0, digits = 0;
+	int overflow = 0, i = 0, j = 0, digits = 0;
 
-        int val1 = 0, val2 = 0, temp_tot = 0;
+	int val1 = 0, val2 = 0, temp_tot = 0;
 
 
-        while (*(n1 + i) != '\0')
+	while (*(n1 + i) != '\0')
 
-                i++;
+		i++;
 
-        while (*(n2 + j) != '\0')
+	while (*(n2 + j) != '\0')
 
-                j++;
+		j++;
 
-        i--;
+	i--;
 
-        j--;
+	j--;
 
-        if (j >= size_r || i >= size_r)
+	if (j >= size_r || i >= size_r)
 
-                return (0);
+		return (0);
 
-        while (j >= 0 || i >= 0 || overflow == 1)
-
-        {
+	while (j >= 0 || i >= 0 || overflow == 1)
+	{
 
                 if (i < 0)
 
-                        val1 = 0;
+			val1 = 0;
 
-                else
+		else
 
-                        val1 = *(n1 + i) - '0';
+			val1 = *(n1 + i) - '0';
+		
+		if (j < 0)
 
-                if (j < 0)
+			val2 = 0;
 
-                        val2 = 0;
+		else
 
-                else
+		val2 = *(n2 + j) - '0';
 
-                        val2 = *(n2 + j) - '0';
+		temp_tot = val1 + val2 + overflow;
 
-                temp_tot = val1 + val2 + overflow;
+		if (temp_tot >= 10)
 
-                if (temp_tot >= 10)
+			overflow = 1;
 
-                        overflow = 1;
+		else
 
-                else
+			overflow = 0;
 
-                        overflow = 0;
+		if (digits >= (size_r - 1))
 
-                if (digits >= (size_r - 1))
+			return (0);
 
-                        return (0);
+		*(r + digits) = (temp_tot % 10) + '0';
 
-                *(r + digits) = (temp_tot % 10) + '0';
+		digits++;
 
-                digits++;
+		j--;
 
-                j--;
+		i--;
 
-                i--;
+	}
 
-        }
+	if (digits == size_r)
 
-        if (digits == size_r)
+	return (0);
 
-                return (0);
+	*(r + digits) = '\0';
 
-        *(r + digits) = '\0';
+	rev_string(r);
 
-        rev_string(r);
-
-        return (r);
+	return (r);
 
 }

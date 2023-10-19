@@ -3,7 +3,7 @@
 /**
  * add_node_end - adds node tto the end of lists
  * @head: head of the node
- * @str; string
+ * @str: string
  * Return: address of new element
  */
 
